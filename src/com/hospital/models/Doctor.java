@@ -59,7 +59,6 @@ public class Doctor extends Person{
 			doctor.put("professionNumber",professionNumber);
 			myDoctors.add(doctor);
 
-			System.out.print(doctor);
 
 
 			System.out.print("\n\nEnter another doctor (y/n)?");
