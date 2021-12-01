@@ -1,9 +1,8 @@
 package com.hospital.Impl;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
-import com.hospital.enumerations.InsuranceType;
-import com.hospital.enumerations.OperationType;
 import com.hospital.interfaces.OperationInterface;
 import com.hospital.models.Operation;
 
@@ -17,7 +16,7 @@ public class OperationImpl implements OperationInterface{
 
     @Override
     public void addOperation(List<Operation> operations) {
-
+        // TODO Auto-generated method stub
 
     }
 

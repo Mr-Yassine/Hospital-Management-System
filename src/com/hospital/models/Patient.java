@@ -13,6 +13,7 @@ public class Patient extends Person{
 
 
 
+
 	List<HashMap> myPatients = new ArrayList<>();
 
 
@@ -33,6 +34,9 @@ public class Patient extends Person{
 		double rembourse = 0;
 		double operationCost = 0;
 		String operationName;
+		String operationType;
+		String room;
+		String insuranceType = "assurance";
 
 		Scanner scan = new Scanner(System.in);
 
@@ -66,11 +70,22 @@ public class Patient extends Person{
 
 				System.out.println("\nLe cout de cette operation " + OperationType.AO932.getCout() + "DH");
 				operationName = OperationType.AO932.getOperationName();
-				patient.put("Le nom d'operation ",operationName);
-
-
+				operationType = OperationType.AO932.getOperationType();
 				operationCost = OperationType.AO932.getCout();
+
+				if (operationType.equals("urgent")) {
+					System.out.println("\nCette opertaion sera effectue au RC");
+					room = "RD";
+				} else {
+					System.out.println("\nCette opertaion sera effectue au 1er etage");
+					room = "1er etage";
+				}
+
+				patient.put("Le nom d'operation ",operationName);
+				patient.put("Le type d'operation ",operationType);
+				patient.put("Le lieu d'operation ",room);
 				patient.put("Le cout d'operation ",operationCost);
+
 				break;
 
 
@@ -78,11 +93,24 @@ public class Patient extends Person{
 
 				System.out.println("\n\nLe cout de cette operation " + OperationType.AS312.getCout() + "DH");
 				operationName = OperationType.AS312.getOperationName();
-				patient.put("Le nom d'operation ",operationName);
-
-
+				operationType = OperationType.AS312.getOperationType();
 				operationCost = OperationType.AS312.getCout();
+
+				if (operationType.equals("urgent")) {
+					System.out.println("\nCette opertaion sera effectue au RC");
+					room = "RD";
+				} else {
+					System.out.println("\nCette opertaion sera effectue au 1er etage");
+					room = "1er etage";
+				}
+
+				patient.put("Le nom d'operation ",operationName);
+				patient.put("Le type d'operation ",operationType);
+				patient.put("Le lieu d'operation ",room);
 				patient.put("Le cout d'operation ",operationCost);
+
+
+
 				break;
 
 
@@ -90,10 +118,23 @@ public class Patient extends Person{
 
 				System.out.println("\n\nLe cout de cette operation " + OperationType.BJ939.getCout() + "DH");
 				operationName = OperationType.BJ939.getOperationName();
-				patient.put("Le nom d'operation",operationName);
-
+				operationType = OperationType.BJ939.getOperationType();
 				operationCost = OperationType.BJ939.getCout();
-				patient.put("Le cout d'operation",operationCost);
+
+				if (operationType.equals("urgent")) {
+					System.out.println("\nCette opertaion sera effectue au RC");
+					room = "RD";
+				} else {
+					System.out.println("\nCette opertaion sera effectue au 1er etage");
+					room = "1er etage";
+				}
+
+				patient.put("Le nom d'operation ",operationName);
+				patient.put("Le type d'operation ",operationType);
+				patient.put("Le lieu d'operation ",room);
+				patient.put("Le cout d'operation ",operationCost);
+
+
 				break;
 
 
@@ -141,8 +182,9 @@ public class Patient extends Person{
 				cout = (operationCost * 20)/100;
 				System.out.println("\nVous devez payez seulement " + cout + "DH");
 
+				insuranceType = InsuranceType.RAMED.getValue();
 
-				patient.put("insuranceType",InsuranceType.RAMED.getValue());
+				patient.put("Type d'assurance",InsuranceType.RAMED.getValue());
 				break;
 
 
@@ -172,28 +214,56 @@ public class Patient extends Person{
 
 
 
-		if (walletBudget >= operationCost) {
+		if (insuranceType.equals("RAMED")) {
+
+			if (walletBudget >= cout) {
 
 
-			System.out.println("\n\n============ Processus administrative =============\n");
-			System.out.print("Enter the First Name:");
-			scan.nextLine();
-			this.setFirstname(scan.nextLine());
+				System.out.println("\n\n============ Processus administrative =============\n");
+				System.out.print("Enter the First Name:");
+				scan.nextLine();
+				this.setFirstname(scan.nextLine());
 
-			System.out.print("Enter the Last Name:");
-			this.setLastname(scan.nextLine());
+				System.out.print("Enter the Last Name:");
+				this.setLastname(scan.nextLine());
 
-			patient.put("Prenom ",this.getFirstname());
-			patient.put("Nom ",this.getLastname());
-			myPatients.add(patient);
+				patient.put("Prenom ",this.getFirstname());
+				patient.put("Nom ",this.getLastname());
+				myPatients.add(patient);
 
 
-			System.out.println("\n\nVoila un rapport qui resume votre operation \n" +
-					myPatients
-					);
+				System.out.println("\n\nVoila un rapport qui resume votre operation \n" + myPatients );
+
+
+
+			} else {
+				System.out.println("\nVous n'avez pas assez d'argent pour effectuer cette operation");
+			}
 
 		} else {
-			System.out.println("\nVous n'avez pas assez d'argent pour effectuer cette operation");
+			if (walletBudget >= operationCost) {
+
+
+				System.out.println("\n\n============ Processus administrative =============\n");
+				System.out.print("Enter the First Name:");
+				scan.nextLine();
+				this.setFirstname(scan.nextLine());
+
+				System.out.print("Enter the Last Name:");
+				this.setLastname(scan.nextLine());
+
+				patient.put("Prenom ",this.getFirstname());
+				patient.put("Nom ",this.getLastname());
+				myPatients.add(patient);
+
+
+				System.out.println("\n\nVoila un rapport qui resume votre operation \n" + myPatients );
+
+
+
+			} else {
+				System.out.println("\nVous n'avez pas assez d'argent pour effectuer cette operation");
+			}
 		}
 
 	}

@@ -9,6 +9,17 @@ public class Operation {
     private Nurse nurse;
     private Patient patient;
 
+
+
+
+
+
+
+
+
+
+
+
 	// Une opération sera dans un hopital, dans une salle spécifique, et géré par un médecin X qui fait partie de l'hopital :)
 	
 	// Il faut vérifier l'assurance du patient avant de passer l'opération

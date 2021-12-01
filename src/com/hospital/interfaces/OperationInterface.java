@@ -1,8 +1,7 @@
 package com.hospital.interfaces;
 
-import com.hospital.models.Operation;
-import java.util.Optional;
-import java.util.List;
+import com.hospital.models.*;
+import java.util.*;
 
 
 public interface OperationInterface {
@@ -10,4 +9,6 @@ public interface OperationInterface {
     public Optional<Operation> getOperationByRef(int ref);
 
     public void addOperation(List<Operation> operations);
+
+
 }
