@@ -23,13 +23,15 @@ public class Main {
 
         do {
 
-            System.out.print("\nChoisissez votre opertion:\n");
-            System.out.print("1- Ajouter Docteur\n" +
+            System.out.println("\n================= Menu =================");
+            System.out.println("Choisissez votre opertion:\n");
+            System.out.println("1- Ajouter Docteur\n" +
                     "2- Ajouter Infermiere\n" +
                     "3- Ajouter Patient\n" +
                     "4- Voir nos docteurs\n" +
                     "5- Voir nor infermieres\n" +
-                    "0- Exit\n");
+                    "0- Exit");
+            System.out.println("========================================\n");
 
 
 

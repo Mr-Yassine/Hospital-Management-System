@@ -51,11 +51,12 @@ public class Patient extends Person{
 
 
 
-
-		System.out.print("Choisissez votre operation:\n");
-		System.out.print("1- AS312\n" +
+		System.out.println("\n============== Operation ===============");
+		System.out.println("Choisissez votre operation:\n");
+		System.out.println("1- AS312\n" +
 				"2- AO932\n" +
-				"3- BJ939\n");
+				"3- BJ939");
+		System.out.println("========================================");
 
 		int operation = scan.nextInt();
 
@@ -63,7 +64,7 @@ public class Patient extends Person{
 
 			case 1:
 
-				System.out.println("\n\nLe cout de cette operation " + OperationType.AO932.getCout() + "DH");
+				System.out.println("\nLe cout de cette operation " + OperationType.AO932.getCout() + "DH");
 				operationName = OperationType.AO932.getOperationName();
 				patient.put("Le nom d'operation ",operationName);
 
@@ -110,11 +111,12 @@ public class Patient extends Person{
 
 
 
-
-		System.out.print("\n\nChoisissez votre type d'assurance:\n");
+		System.out.println("\n============== Assurance ===============");
+		System.out.println("Choisissez votre type d'assurance:\n");
 		System.out.print("1- CNSS\n" +
 				"2- RAMED\n" +
-				"3- CNOPS\n");
+				"3- CNOPS");
+		System.out.println("\n========================================");
 
 		int choix = scan.nextInt();
 
@@ -153,7 +155,7 @@ public class Patient extends Person{
 
 
 				patient.put("Type d'assurance ",InsuranceType.CNOPS.getValue());
-				patient.put("Pourcentage du remboursement ",InsuranceType.CNSS.getRembourse() + "%");
+				patient.put("Pourcentage du remboursement ",InsuranceType.CNOPS.getRembourse() + "%");
 				patient.put("Remboursement ",rembourse + "DH");
 				break;
 
@@ -170,10 +172,11 @@ public class Patient extends Person{
 
 
 
-		if (walletBudget >= cout) {
+		if (walletBudget >= operationCost) {
 
 
-			System.out.print("\nEnter the First Name:");
+			System.out.println("\n\n============ Processus administrative =============\n");
+			System.out.print("Enter the First Name:");
 			scan.nextLine();
 			this.setFirstname(scan.nextLine());
 
