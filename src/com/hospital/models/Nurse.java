@@ -51,8 +51,8 @@ public class Nurse extends Person {
 
 
 
-            nurse.put("fName",this.getFirstname());
-            nurse.put("lName",this.getLastname());
+            nurse.put("Prenom",this.getFirstname());
+            nurse.put("Nom",this.getLastname());
             nurse.put("professionNumber",professionNumber);
             myNurses.add(nurse);
 

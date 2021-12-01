@@ -3,6 +3,7 @@ package com.hospital.models;
 import java.util.*;
 
 import com.hospital.enumerations.InsuranceType;
+import com.hospital.enumerations.OperationType;
 
 public class Patient extends Person{
 
@@ -27,10 +28,11 @@ public class Patient extends Person{
 
 	public void addPatient() {
 
-		String answer;
-		boolean Budget = true;
 		double walletBudget = 22000;
 		double cout = 0;
+		double rembourse = 0;
+		double operationCost = 0;
+		String operationName;
 
 		Scanner scan = new Scanner(System.in);
 
@@ -61,23 +63,42 @@ public class Patient extends Person{
 
 			case 1:
 
-				System.out.println("\n\nCette operation cout 15000 dh");
+				System.out.println("\n\nLe cout de cette operation " + OperationType.AO932.getCout() + "DH");
+				operationName = OperationType.AO932.getOperationName();
+				patient.put("Le nom d'operation ",operationName);
+
+
+				operationCost = OperationType.AO932.getCout();
+				patient.put("Le cout d'operation ",operationCost);
 				break;
 
 
 			case 2:
 
-				System.out.println("\n\nCette operation cout 5000 dh");
+				System.out.println("\n\nLe cout de cette operation " + OperationType.AS312.getCout() + "DH");
+				operationName = OperationType.AS312.getOperationName();
+				patient.put("Le nom d'operation ",operationName);
+
+
+				operationCost = OperationType.AS312.getCout();
+				patient.put("Le cout d'operation ",operationCost);
 				break;
 
 
 			case 3:
 
-				System.out.println("\n\nCette operation cout 82000 dh");
+				System.out.println("\n\nLe cout de cette operation " + OperationType.BJ939.getCout() + "DH");
+				operationName = OperationType.BJ939.getOperationName();
+				patient.put("Le nom d'operation",operationName);
+
+				operationCost = OperationType.BJ939.getCout();
+				patient.put("Le cout d'operation",operationCost);
 				break;
 
+
+
 			default:
-				System.out.println("\noperation not found");
+				System.out.println("\nOperation not found");
 		}
 
 
@@ -100,34 +121,40 @@ public class Patient extends Person{
 		switch(choix) {
 			case 1:
 
-				System.out.println("\nVous devez payez seulement 30%");
-				patient.put("insuranceType","CNSS");
+				System.out.println("\nVous devez payez " + operationCost + "DH");
 
-				cout = (82000 * 30)/100;
-				System.out.println("Donc l'operation sa cout : " +cout);
-				patient.put("cout",cout);
+
+				rembourse = (operationCost * InsuranceType.CNSS.getRembourse())/100;
+				System.out.println("L'assurance va te rembourser avec : " + rembourse + "DH");
+
+
+				patient.put("Type d'assurance",InsuranceType.CNSS.getValue());
+				patient.put("Pourcentage du remboursement ",InsuranceType.CNSS.getRembourse() + "%");
+				patient.put("Remboursement ",rembourse + "DH");
 				break;
 
 
 			case 2:
 
-				System.out.println("\nVous devez payez seulement 20%");
-				patient.put("insuranceType","RAMED");
+				cout = (operationCost * 20)/100;
+				System.out.println("\nVous devez payez seulement " + cout + "DH");
 
-				cout = (15000 * 20)/100;
-				System.out.println("Donc l'operation sa cout : " +cout);
-				patient.put("cout",cout);
+
+				patient.put("insuranceType",InsuranceType.RAMED.getValue());
 				break;
 
 
 			case 3:
 
-				System.out.println("\nVous devez payez seulement 30%");
-				patient.put("insuranceType","CNOPS");
+				System.out.println("\nVous devez payez " + operationCost + "DH");
 
-				cout = (82000 * 0)/100;
-				System.out.println("Donc l'operation sa cout : " +cout);
-				patient.put("cout",cout);
+				rembourse = (operationCost * InsuranceType.CNOPS.getRembourse())/100;
+				System.out.println("L'assurance va te rembourser avec : " + rembourse + "DH");
+
+
+				patient.put("Type d'assurance ",InsuranceType.CNOPS.getValue());
+				patient.put("Pourcentage du remboursement ",InsuranceType.CNSS.getRembourse() + "%");
+				patient.put("Remboursement ",rembourse + "DH");
 				break;
 
 			default:
@@ -153,18 +180,17 @@ public class Patient extends Person{
 			System.out.print("Enter the Last Name:");
 			this.setLastname(scan.nextLine());
 
-			patient.put("fName",this.getFirstname());
-			patient.put("lName",this.getLastname());
+			patient.put("Prenom ",this.getFirstname());
+			patient.put("Nom ",this.getLastname());
 			myPatients.add(patient);
 
 
-			System.out.println("Voila un rapport qui resume votre operation \n" +
+			System.out.println("\n\nVoila un rapport qui resume votre operation \n" +
 					myPatients
 					);
 
 		} else {
 			System.out.println("\nVous n'avez pas assez d'argent pour effectuer cette operation");
-			Budget = false;
 		}
 
 	}

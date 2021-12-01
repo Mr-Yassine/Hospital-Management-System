@@ -54,8 +54,8 @@ public class Doctor extends Person{
 
 
 
-			doctor.put("fName",this.getFirstname());
-			doctor.put("lName",this.getLastname());
+			doctor.put("Prenom",this.getFirstname());
+			doctor.put("Nom",this.getLastname());
 			doctor.put("professionNumber",professionNumber);
 			myDoctors.add(doctor);
 
