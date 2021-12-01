@@ -7,6 +7,7 @@ public class Nurse extends Person {
 
     private String professionNumber;
     private double salary;
+    List<HashMap> myNurses = new ArrayList<>();
 
 
     public Nurse(){}
@@ -31,7 +32,7 @@ public class Nurse extends Person {
 
         // Create a HashMap object called Nurse
         HashMap nurse = new HashMap<>();
-        List<HashMap> myNurses = new ArrayList<>();
+
 
 
 
@@ -73,7 +74,12 @@ public class Nurse extends Person {
         } while (loopAgain);
         //scan.close();
 
-        System.out.println(myNurses);
+
+    }
+
+
+    public void showNurse(){
+        System.out.println("\n" + myNurses);
     }
 
 }

@@ -6,13 +6,12 @@ public class Doctor extends Person{
 	private String professionNumber;
 	private TimeSlot shiftSlot;
 	private double salary;
-	HashMap doctor;
-	List<HashMap> myDoctors;
 
-	public Doctor(){
-		doctor = new HashMap<>();
-		myDoctors = new ArrayList<>();
-	}
+
+	List<HashMap> myDoctors = new ArrayList<>();
+
+
+	public Doctor(){};
 
 	public Doctor(String firstname,String lastname,String phone,String address, String professionNumber,TimeSlot shiftSlot,double salary) {
 		super(firstname,lastname, phone, address);
@@ -33,13 +32,13 @@ public class Doctor extends Person{
 		Scanner scan = new Scanner(System.in);
 
 
-		// Create a HashMap object called Doctor
-
-
 
 
 
 		do {
+
+			// Create a HashMap object called Doctor
+			HashMap doctor = new HashMap<>();
 
 
 			System.out.print("\nEnter the First Name:");
@@ -60,7 +59,7 @@ public class Doctor extends Person{
 			doctor.put("professionNumber",professionNumber);
 			myDoctors.add(doctor);
 
-			//System.out.print(doctor);
+			System.out.print(doctor);
 
 
 			System.out.print("\n\nEnter another doctor (y/n)?");
@@ -79,9 +78,14 @@ public class Doctor extends Person{
 		} while (loopAgain);
 		//scan.close();
 
-		System.out.println(myDoctors);
+
 	}
 
+
+
+	public void showDoctor(){
+		System.out.println("\n" + myDoctors);
+	}
 
 
 

@@ -10,6 +10,8 @@ public class Patient extends Person{
 	private String affiliationNumber;
 	private InsuranceType insuranceType;
 
+	List<HashMap> myPatients = new ArrayList<>();
+
 
 	public Patient(){}
 	public Patient(Date hospitalEntryDate,String affiliationNumber,InsuranceType insuranceType) {
@@ -33,7 +35,7 @@ public class Patient extends Person{
 
 		// Create a HashMap object called Doctor
 		HashMap patient = new HashMap<>();
-		List<HashMap> myPatients = new ArrayList<>();
+
 
 
 
@@ -48,7 +50,7 @@ public class Patient extends Person{
 			this.setLastname(scan.nextLine());
 
 
-			System.out.print("Choisissez votre type d'assurance:");
+			System.out.print("Choisissez votre type d'assurance:\n");
 			System.out.print("1- CNSS\n" +
 					"2- RAMED\n" +
 					"3- CNOPS");
@@ -92,6 +94,11 @@ public class Patient extends Person{
 		} while (Budget);
 
 		System.out.println(myPatients);
+	}
+
+
+	public void showPatient(){
+		System.out.println("\n" + myPatients);
 	}
 
 

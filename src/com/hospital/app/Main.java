@@ -23,7 +23,7 @@ public class Main {
 
         do {
 
-            System.out.print("Choisissez votre opertion:\n");
+            System.out.print("\nChoisissez votre opertion:\n");
             System.out.print("1- Ajouter Docteur\n" +
                     "2- Ajouter Infermiere\n" +
                     "3- Ajouter Patient\n" +
@@ -54,6 +54,25 @@ public class Main {
                     break;
 
 
+
+                case 4:
+
+                    myDoctors.showDoctor();
+                    break;
+
+
+
+                case 5:
+
+                    myNurses.showNurse();
+                    break;
+
+
+
+                case 0:
+
+                    System.out.println("Merci pour votre confiance, au revoir!!");
+                    break;
 
 
                 default:
