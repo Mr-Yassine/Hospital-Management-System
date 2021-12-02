@@ -5,9 +5,8 @@ import java.util.*;
 import com.hospital.enumerations.InsuranceType;
 import com.hospital.enumerations.OperationType;
 import com.hospital.interfaces.OperationInterface;
-import com.hospital.models.Doctor;
-import com.hospital.models.Operation;
-import com.hospital.models.Patient;
+import com.hospital.models.*;
+
 
 
 public class OperationImpl implements OperationInterface{
@@ -41,7 +40,7 @@ public class OperationImpl implements OperationInterface{
     @Override
     public void addOperation() {
 
-        double walletBudget = 22000;
+
         double cout = 0;
         double rembourse = 0;
         double operationCost = 0;
@@ -184,7 +183,7 @@ public class OperationImpl implements OperationInterface{
 
             case 2:
 
-                cout = (operationCost * 20)/100;
+                cout = operationCost * 0.2;
                 System.out.println("\nVous devez payez seulement " + cout + "DH");
 
                 insuranceType = InsuranceType.RAMED.getValue();
@@ -221,7 +220,7 @@ public class OperationImpl implements OperationInterface{
 
         if (insuranceType.equals("RAMED")) {
 
-            if (walletBudget >= cout) {
+            if (patients.getWalletBudget() >= cout) {
 
 
                 System.out.println("\n\n============ Processus administrative =============\n");
@@ -232,8 +231,12 @@ public class OperationImpl implements OperationInterface{
                 System.out.print("Enter the Last Name:");
                 patients.setLastname(scan.nextLine());
 
+                double rest = patients.getWalletBudget() - cout;
+                patients.setWalletBudget(rest);
+
                 patient.put("Prenom ",patients.getFirstname());
                 patient.put("Nom ",patients.getLastname());
+                patient.put("Wallet ",patients.getWalletBudget());
                 myPatients.add(patient);
 
 
@@ -241,7 +244,6 @@ public class OperationImpl implements OperationInterface{
                 System.out.println("\n=================== Resume ======================" );
                 int i=1;
                 for (Map resume:myPatients){
-                    System.out.println("im in");
                     List<Map> list = new ArrayList<>(resume.entrySet());
                     //System.out.println(list);
                     System.out.println("\nPatient n:" +i + "\n");
@@ -262,7 +264,7 @@ public class OperationImpl implements OperationInterface{
 
         } else {
 
-            if (walletBudget >= operationCost) {
+            if (patients.getWalletBudget() >= operationCost) {
 
 
                 System.out.println("\n\n============ Processus administrative =============\n");
@@ -272,8 +274,12 @@ public class OperationImpl implements OperationInterface{
                 System.out.print("Enter the Last Name:");
                 patients.setLastname(scan.nextLine());
 
+                double rest = patients.getWalletBudget() - operationCost;
+                patients.setWalletBudget(rest);
+
                 patient.put("Prenom ",patients.getFirstname());
                 patient.put("Nom ",patients.getLastname());
+                patient.put("Wallet ",patients.getWalletBudget());
                 myPatients.add(patient);
 
 

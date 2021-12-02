@@ -1,9 +1,7 @@
 package com.hospital.app;
 import java.util.*;
 
-import com.hospital.Impl.DoctorImpl;
-import com.hospital.Impl.NurseImpl;
-import com.hospital.Impl.OperationImpl;
+import com.hospital.Impl.*;
 import com.hospital.models.*;
 
 
@@ -78,6 +76,11 @@ public class Main {
                     infImpl.showNurse();
                     break;
 
+
+                case 6:
+
+                    System.out.println("Send email");
+                    break;
 
 
                 case 0:

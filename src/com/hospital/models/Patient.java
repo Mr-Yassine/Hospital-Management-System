@@ -10,7 +10,7 @@ public class Patient extends Person{
 	private Date hospitalEntryDate;
 	private String affiliationNumber;
 	private InsuranceType insuranceType;
-
+	private double walletBudget = 22000;
 
 
 
@@ -18,19 +18,17 @@ public class Patient extends Person{
 
 
 	public Patient(){}
-	public Patient(String firstname,String lastname,String phone,String address,Date hospitalEntryDate,String affiliationNumber,InsuranceType insuranceType) {
+	public Patient(String firstname,String lastname,String phone,String address,Date hospitalEntryDate,String affiliationNumber,InsuranceType insuranceType, double walletBudget) {
 		super(firstname,lastname, phone, address);
 		this.hospitalEntryDate = hospitalEntryDate;
 		this.affiliationNumber = affiliationNumber;
 		this.insuranceType = insuranceType;
+		this.walletBudget = walletBudget;
 	}
 
 
-
-
-
-
-
+	public double getWalletBudget() { return walletBudget;}
+	public void setWalletBudget(double walletBudget) {this.walletBudget = walletBudget;}
 
 
 
