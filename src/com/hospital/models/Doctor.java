@@ -8,7 +8,7 @@ public class Doctor extends Person{
 	private double salary;
 
 
-	List<HashMap> myDoctors = new ArrayList<>();
+
 
 
 	public Doctor(){};
@@ -23,68 +23,10 @@ public class Doctor extends Person{
 
 
 
-	public void addDoctor() {
-
-		String answer;
-		boolean loopAgain = true;
-
-
-		Scanner scan = new Scanner(System.in);
 
 
 
 
-
-		do {
-
-			// Create a HashMap object called Doctor
-			HashMap doctor = new HashMap<>();
-
-
-			System.out.print("\nEnter the First Name:");
-			this.setFirstname(scan.nextLine());
-
-			System.out.print("Enter the Last Name:");
-			this.setLastname(scan.nextLine());
-
-
-
-			System.out.print("Enter the profession number:");
-			professionNumber = scan.nextLine();
-
-
-
-			doctor.put("Prenom",this.getFirstname());
-			doctor.put("Nom",this.getLastname());
-			doctor.put("professionNumber",professionNumber);
-			myDoctors.add(doctor);
-
-
-
-			System.out.print("\n\nEnter another doctor (y/n)?");
-			answer = scan.nextLine();
-
-
-
-
-			if (answer.equals("y") || answer.equals("Y")) {
-				continue;
-			} else {
-				break;
-			}
-
-
-		} while (loopAgain);
-		//scan.close();
-
-
-	}
-
-
-
-	public void showDoctor(){
-		System.out.println("\n" + myDoctors);
-	}
 
 
 

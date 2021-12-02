@@ -8,7 +8,7 @@ public interface OperationInterface {
 
     public Optional<Operation> getOperationByRef(int ref);
 
-    public void addOperation(List<Operation> operations);
+    public void addOperation();
 
 
 }

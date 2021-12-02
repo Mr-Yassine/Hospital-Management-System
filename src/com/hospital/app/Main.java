@@ -1,5 +1,9 @@
 package com.hospital.app;
 import java.util.*;
+
+import com.hospital.Impl.DoctorImpl;
+import com.hospital.Impl.NurseImpl;
+import com.hospital.Impl.OperationImpl;
 import com.hospital.models.*;
 
 
@@ -8,13 +12,18 @@ import com.hospital.models.*;
 public class Main {
 
 
+    static DoctorImpl docImpl = new DoctorImpl();
+    static NurseImpl infImpl = new NurseImpl();
+    static OperationImpl operImpl = new OperationImpl();
+
+
 
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        Doctor myDoctors = new Doctor();
         Nurse myNurses = new Nurse();
         Patient myPatients = new Patient();
+        Operation myOperation = new Operation();
 
 
         int choix = 9;
@@ -29,7 +38,7 @@ public class Main {
                     "2- Ajouter Infermiere\n" +
                     "3- Ajouter Patient\n" +
                     "4- Voir nos docteurs\n" +
-                    "5- Voir nor infermieres\n" +
+                    "5- Voir nos infermieres\n" +
                     "0- Exit");
             System.out.println("========================================\n");
 
@@ -40,33 +49,33 @@ public class Main {
             switch(choix) {
                 case 1:
 
-                    myDoctors.addDoctor();
+                    docImpl.addDoctor();
                     break;
 
 
                 case 2:
 
-                    myNurses.addNurse();
+                    infImpl.addNurse();
                     break;
 
 
                 case 3:
 
-                    myPatients.addPatient();
+                    operImpl.addOperation();
                     break;
 
 
 
                 case 4:
 
-                    myDoctors.showDoctor();
+                    docImpl.showDoctor();
                     break;
 
 
 
                 case 5:
 
-                    myNurses.showNurse();
+                    infImpl.showNurse();
                     break;
 
 

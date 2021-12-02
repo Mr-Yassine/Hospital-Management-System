@@ -1,5 +1,7 @@
 package com.hospital.models;
 
+import javax.print.Doc;
+
 public class Operation {
 
 
@@ -11,16 +13,69 @@ public class Operation {
 
 
 
+    public Operation(){};
+
+    public Operation(Hospital hospital, Room room, Doctor doctor, Nurse nurse, Patient patient) {
+        this.hospital = hospital;
+        this.room = room;
+        this.doctor = doctor;
+        this.nurse = nurse;
+        this.patient = patient;
+    }
+
+
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+
+
+
+    public Room getRoom() {
+        return room;
+    }
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+
+
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 
 
 
 
 
+    public Nurse getNurse() {
+        return nurse;
+    }
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
 
 
 
 
-	// Une opération sera dans un hopital, dans une salle spécifique, et géré par un médecin X qui fait partie de l'hopital :)
+
+    public Patient getPatient() {
+        return patient;
+    }
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+
+// Une opération sera dans un hopital, dans une salle spécifique, et géré par un médecin X qui fait partie de l'hopital :)
 	
 	// Il faut vérifier l'assurance du patient avant de passer l'opération
 	
